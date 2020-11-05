@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import { ExampleComponent } from 'react-drilldown-menu'
-import 'react-drilldown-menu/dist/index.css'
+import { ReactDrilldownMenu } from 'react-drilldown-menu';
+import 'react-drilldown-menu/dist/index.css';
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
-}
+  return <ReactDrilldownMenu />;
+};
 
-export default App
+export default App;

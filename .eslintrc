@@ -1,15 +1,16 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "standard",
-    "standard-react",
-    "plugin:prettier/recommended",
-    "prettier/standard",
-    "prettier/react"
-  ],
   "env": {
-    "node": true
+    "node": true,
+    "es6": true,
+    "jest/globals": true
   },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended"
+  ],
+
   "parserOptions": {
     "ecmaVersion": 2020,
     "ecmaFeatures": {
@@ -19,15 +20,55 @@
   },
   "settings": {
     "react": {
-      "version": "16"
+      "createClass": "createReactClass", // Regex for Component Factory to use,
+      "pragma": "React", // Pragma to use, default to "React"
+      "version": "detect", // React version. "detect" automatically picks the version you have installed.
+      "flowVersion": "0.53" // Flow version
+    },
+    "jest": {
+      "version": 26
     }
   },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "plugins": ["react", "jest"],
   "rules": {
-    "space-before-function-paren": 0,
-    "react/prop-types": 0,
-    "react/jsx-handler-names": 0,
-    "react/jsx-fragments": 0,
-    "react/no-unused-prop-types": 0,
-    "import/export": 0
+    "linebreak-style": 0,
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "semi": ["error", "always"],
+    "comma-dangle": [1, "always-multiline"],
+    "react/jsx-filename-extension": 2,
+    "react/prefer-es6-class": 2,
+    "react/self-closing-comp": 2,
+    "react/no-children-prop": 2,
+    "react/no-danger": 2,
+    "react/no-danger-with-children": 2,
+    "react/no-deprecated": 2,
+    "react/no-direct-mutation-state": 2,
+    "react/no-is-mounted": 2,
+    "react/no-multi-comp": 2,
+    "react/no-unknown-property": 2,
+    "react/no-unsafe": 2,
+    "react/destructuring-assignment": 1,
+    "react/no-access-state-in-setstate": 1,
+    "react/no-array-index-key": 1,
+    "react/no-did-mount-set-state": 1,
+    "react/no-did-update-set-state": 1,
+    "react/no-find-dom-node": 1,
+    "react/no-redundant-should-component-update": 1,
+    "react/no-this-in-sfc": 1,
+    "react/no-typos": 1,
+    "react/no-unescaped-entities": 1,
+    "react/no-unused-prop-types": 1,
+    "react/no-unused-state": 1,
+    "react/jsx-boolean-value": 1,
+    "react/sort-comp": 1,
+    "jest/no-disabled-tests": 1,
+    "jest/no-focused-tests": 2,
+    "jest/no-identical-title": 2,
+    "jest/prefer-to-have-length": 1,
+    "jest/valid-expect": 2
   }
 }
