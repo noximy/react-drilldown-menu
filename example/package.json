@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "react": "link:../node_modules/react",
+    "react-bootstrap-icons": "^1.1.0",
     "react-dom": "link:../node_modules/react-dom",
-    "react-scripts": "link:../node_modules/react-scripts",
-    "react-drilldown-menu": "link:.."
+    "react-drilldown-menu": "link:..",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "link:../node_modules/react-scripts"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"

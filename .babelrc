@@ -6,9 +6,10 @@
       {
         "root": ["./"],
         "alias": {
-          "root": "./src",
+          "src": "./src",
           "constants": "./src/constants",
-          "components": "./src/components"
+          "components": "./src/components",
+          "services": "./src/services"
         }
       }
     ]
