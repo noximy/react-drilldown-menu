@@ -30,19 +30,3 @@ export function getCurrentLinks(links, path) {
 
   return { newLinks, nodeInfo, newPath };
 }
-
-export function getCorrectPath(links, path) {
-  const pathA = path.substring(1);
-  const nodes = pathA.split('/');
-
-  let newNodeArr = [];
-  for (let node of nodes) {
-    if (links[node] && links[node].links) {
-      newNodeArr.push(node);
-    } else {
-      break;
-    }
-  }
-
-  return newNodeArr.join('/');
-}

@@ -18,7 +18,7 @@ import { ArrowLeft, SquareFill, ChevronDown } from 'react-bootstrap-icons';
 
 import Link from 'components/link/Link';
 
-import { getCorrectPath, getCurrentLinks } from 'services/links.js';
+import { getCurrentLinks } from 'services/menu-service.js';
 
 import t from 'src/theme';
 
