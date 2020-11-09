@@ -6,17 +6,13 @@ import {
   BackButton,
   BackButtonIcon,
   BackButtonText,
-  HeaderInfo,
-  NodeInfo,
-  NodeIcon,
-  NodeLabel,
-  ExpandIcon,
   Links,
 } from './index-style';
 
-import { ArrowLeft, SquareFill, ChevronDown } from 'react-bootstrap-icons';
+import { ArrowLeft, SquareFill } from 'react-bootstrap-icons';
 
 import Link from 'components/link/Link';
+import Header from 'components/header/Header';
 
 import { getCurrentLinks } from 'services/menu-service.js';
 
@@ -68,19 +64,14 @@ export const ReactDrilldownMenu = ({
 
   return (
     <ReactDrilldownMenuSC>
-      <HeaderInfo>
-        <NodeInfo>
-          <NodeIcon>{nodeInfo ? nodeInfo.icon : icon}</NodeIcon>
-          <NodeLabel>{nodeInfo ? nodeInfo.label : name}</NodeLabel>
-        </NodeInfo>
+      <Header
+        expanded={expanded}
+        nodeInfo={nodeInfo}
+        menuIcon={icon}
+        menuName={name}
+        onToggleExpand={() => setExpanded((prevState) => !prevState)}
+      />
 
-        <ExpandIcon
-          onClick={() => setExpanded((prevState) => !prevState)}
-          className={expanded ? '' : 'collapsed'}
-        >
-          <ChevronDown />
-        </ExpandIcon>
-      </HeaderInfo>
       {path && expanded ? (
         <BackButton onClick={handleBackClick}>
           <BackButtonIcon>
