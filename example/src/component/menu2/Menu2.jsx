@@ -24,6 +24,14 @@ export default function Menu2() {
               },
             },
           },
+          'page-2': {
+            label: 'Page 2',
+            icon: <Icon.CircleFill />,
+          },
+          'page-6': {
+            label: 'Page 6',
+            icon: <Icon.CircleFill />,
+          },
         }}
       />
     </div>

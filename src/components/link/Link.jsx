@@ -13,21 +13,24 @@ export default function Link({
   onNodeClick,
 }) {
   return (
-    <LinkSC>
+    <LinkSC className="k-link">
       {link.links ? (
-        <div className="link-element" onClick={() => onNodeClick(link.path)}>
-          <Icon>{link.icon}</Icon>
-          <Label>{link.label}</Label>
+        <div
+          className="link-element k-node-link"
+          onClick={() => onNodeClick(link.path)}
+        >
+          <Icon className="k-link-icon k-node-icon">{link.icon}</Icon>
+          <Label className="k-link-label k-node-label">{link.label}</Label>
           <RightArrow>{React.createElement(rightArrowIcon)}</RightArrow>
         </div>
       ) : (
         React.createElement(as, {
           to: `${currentNode}/${link.path}`,
-          className: 'link-element',
+          className: 'link-element k-link-anchor',
           children: (
             <React.Fragment>
-              <Icon>{link.icon}</Icon>
-              <Label>{link.label}</Label>
+              <Icon className="k-link-icon">{link.icon}</Icon>
+              <Label className="k-link-label">{link.label}</Label>
             </React.Fragment>
           ),
         })

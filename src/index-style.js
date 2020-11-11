@@ -30,7 +30,6 @@ export const BackButton = styled.button`
   outline: none;
   cursor: pointer;
   color: ${t.selectionBackgroundColor};
-  transition: 0.3s all;
 
   :hover {
     ${BackButtonIcon} {

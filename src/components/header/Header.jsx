@@ -19,15 +19,19 @@ export default function Header({
   onToggleExpand,
 }) {
   return (
-    <HeaderSC>
-      <NodeInfo>
-        <NodeIcon>{nodeInfo ? nodeInfo.icon : menuIcon}</NodeIcon>
-        <NodeLabel>{nodeInfo ? nodeInfo.label : menuName}</NodeLabel>
+    <HeaderSC className="k-header">
+      <NodeInfo className="k-header-name-container">
+        <NodeIcon className="k-header-icon">
+          {nodeInfo ? nodeInfo.icon : menuIcon}
+        </NodeIcon>
+        <NodeLabel className="k-header-name">
+          {nodeInfo ? nodeInfo.label : menuName}
+        </NodeLabel>
       </NodeInfo>
 
       <ExpandIcon
         onClick={onToggleExpand}
-        className={expanded ? '' : 'collapsed'}
+        className={'k-expand-icon ' + (expanded ? '' : 'collapsed')}
       >
         <ChevronDown />
       </ExpandIcon>

@@ -44,7 +44,8 @@ code {
   height: 200px;
   width: 400px;
   background: #fff;
+  color: #5c5c6d;
   font-size: 26px;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 2px 4px #66666633;
 }

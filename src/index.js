@@ -24,6 +24,7 @@ export const ReactDrilldownMenu = ({
   activeLink,
   navLinkElement,
   links,
+  rightArrowIcon,
 }) => {
   const [path, setPath] = useState('');
   const [currentLinks, setCurrentLinks] = useState(links);
@@ -63,7 +64,7 @@ export const ReactDrilldownMenu = ({
   };
 
   return (
-    <ReactDrilldownMenuSC>
+    <ReactDrilldownMenuSC className="k-menu-container">
       <Header
         expanded={expanded}
         nodeInfo={nodeInfo}
@@ -73,16 +74,20 @@ export const ReactDrilldownMenu = ({
       />
 
       {path && expanded ? (
-        <BackButton onClick={handleBackClick}>
-          <BackButtonIcon>
+        <BackButton
+          className="k-back-button-container"
+          onClick={handleBackClick}
+        >
+          <BackButtonIcon className="k-back-button-icon">
             <ArrowLeft />
           </BackButtonIcon>
 
-          <BackButtonText>Back</BackButtonText>
+          <BackButtonText className="k-back-button-text">Back</BackButtonText>
         </BackButton>
       ) : null}
 
       <Links
+        className="k-links-container"
         style={{
           height: expanded
             ? Object.keys(currentLinks).length * t.linkHeightNumber + 'px'
@@ -96,6 +101,7 @@ export const ReactDrilldownMenu = ({
               currentNode={path ? '/' + path : ''}
               as={navLinkElement}
               link={{ path: node, ...currentLinks[node] }}
+              rightArrowIcon={rightArrowIcon}
               onNodeClick={handleNodeClick}
             />
           );
@@ -110,6 +116,7 @@ ReactDrilldownMenu.propTypes = {
   name: PropTypes.string,
   icon: PropTypes.any,
   links: PropTypes.object.isRequired,
+  rightArrowIcon: PropTypes.any,
   navLinkElement: PropTypes.any.isRequired,
 };
 
@@ -117,4 +124,5 @@ ReactDrilldownMenu.defaultProps = {
   activeLink: '',
   name: 'Menu',
   icon: <SquareFill />,
+  rightArrowIcon: null,
 };

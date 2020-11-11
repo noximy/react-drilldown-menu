@@ -1,8 +1,8 @@
 export default {
   selectionBackgroundColor: '#5098cd',
 
-  linkHeightNumber: 40,
-  linkHeight: '40px',
-  linkIconFontSize: '11px',
+  linkHeightNumber: 37,
+  linkHeight: '37px',
+  linkIconFontSize: '10px',
   backButtonSize: '16px',
 };

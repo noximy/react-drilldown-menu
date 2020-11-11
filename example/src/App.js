@@ -45,6 +45,9 @@ const App = () => {
               <Route excat path="/node-1/page-5">
                 <div>Page 5</div>
               </Route>
+              <Route excat path="/page-6">
+                <div>Page 6</div>
+              </Route>
               <Route path="*">
                 <Redirect to="/page-1" />
               </Route>
