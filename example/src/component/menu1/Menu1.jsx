@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import * as Icon from 'react-bootstrap-icons';
 
 import { ReactDrilldownMenu } from 'react-drilldown-menu';
-import 'react-drilldown-menu/dist/index.css';
 
 export default function Menu1() {
   const location = useLocation();
