@@ -68,6 +68,7 @@
   ],
   "dependencies": {
     "react-bootstrap-icons": "^1.1.0",
+    "react-router-dom": "^5.2.0",
     "react-sortablejs": "^2.0.11",
     "styled-components": "^5.2.0"
   }

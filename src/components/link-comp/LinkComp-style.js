@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import t from 'src/theme';
 
-export const Icon = styled.div`
+export const IconSC = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,13 +42,13 @@ export const LinkSC = styled.div`
       background: ${t.selectionBackgroundColor};
       color: #ffffff;
 
-      ${Icon} {
+      ${IconSC} {
         color: #ffffff;
       }
 
       &:hover {
         background: ${t.selectionBackgroundColor};
-        ${Icon} {
+        ${IconSC} {
           color: #ffffff;
         }
       }

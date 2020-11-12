@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import {
   ReactDrilldownMenuSC,
@@ -11,7 +12,7 @@ import {
 
 import { ArrowLeft, SquareFill } from 'react-bootstrap-icons';
 
-import Link from 'components/link/Link';
+import LinkComp from 'components/link-comp/LinkComp';
 import Header from 'components/header/Header';
 
 import { getCurrentLinks } from 'services/menu-service.js';
@@ -19,10 +20,9 @@ import { getCurrentLinks } from 'services/menu-service.js';
 import t from 'src/theme';
 
 export const ReactDrilldownMenu = ({
+  activeLink,
   name,
   icon,
-  activeLink,
-  navLinkElement,
   links,
   rightArrowIcon,
 }) => {
@@ -65,48 +65,49 @@ export const ReactDrilldownMenu = ({
 
   return (
     <ReactDrilldownMenuSC className="k-menu-container">
-      <Header
-        expanded={expanded}
-        nodeInfo={nodeInfo}
-        menuIcon={icon}
-        menuName={name}
-        onToggleExpand={() => setExpanded((prevState) => !prevState)}
-      />
+      <Router>
+        <Header
+          expanded={expanded}
+          nodeInfo={nodeInfo}
+          menuIcon={icon}
+          menuName={name}
+          onToggleExpand={() => setExpanded((prevState) => !prevState)}
+        />
 
-      {path && expanded ? (
-        <BackButton
-          className="k-back-button-container"
-          onClick={handleBackClick}
+        {path && expanded ? (
+          <BackButton
+            className="k-back-button-container"
+            onClick={handleBackClick}
+          >
+            <BackButtonIcon className="k-back-button-icon">
+              <ArrowLeft />
+            </BackButtonIcon>
+
+            <BackButtonText className="k-back-button-text">Back</BackButtonText>
+          </BackButton>
+        ) : null}
+
+        <Links
+          className="k-links-container"
+          style={{
+            height: expanded
+              ? Object.keys(currentLinks).length * t.linkHeightNumber + 'px'
+              : 0,
+          }}
         >
-          <BackButtonIcon className="k-back-button-icon">
-            <ArrowLeft />
-          </BackButtonIcon>
-
-          <BackButtonText className="k-back-button-text">Back</BackButtonText>
-        </BackButton>
-      ) : null}
-
-      <Links
-        className="k-links-container"
-        style={{
-          height: expanded
-            ? Object.keys(currentLinks).length * t.linkHeightNumber + 'px'
-            : 0,
-        }}
-      >
-        {Object.keys(currentLinks).map((node) => {
-          return (
-            <Link
-              key={node}
-              currentNode={path ? '/' + path : ''}
-              as={navLinkElement}
-              link={{ path: node, ...currentLinks[node] }}
-              rightArrowIcon={rightArrowIcon}
-              onNodeClick={handleNodeClick}
-            />
-          );
-        })}
-      </Links>
+          {Object.keys(currentLinks).map((node) => {
+            return (
+              <LinkComp
+                key={node}
+                currentNode={path ? '/' + path : ''}
+                link={{ path: node, ...currentLinks[node] }}
+                rightArrowIcon={rightArrowIcon}
+                onNodeClick={handleNodeClick}
+              />
+            );
+          })}
+        </Links>
+      </Router>
     </ReactDrilldownMenuSC>
   );
 };
@@ -117,7 +118,6 @@ ReactDrilldownMenu.propTypes = {
   icon: PropTypes.any,
   links: PropTypes.object.isRequired,
   rightArrowIcon: PropTypes.any,
-  navLinkElement: PropTypes.any.isRequired,
 };
 
 ReactDrilldownMenu.defaultProps = {

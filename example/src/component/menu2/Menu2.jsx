@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import * as Icon from 'react-bootstrap-icons';
 
 import { ReactDrilldownMenu } from 'react-drilldown-menu';
@@ -12,7 +12,6 @@ export default function Menu2() {
       <ReactDrilldownMenu
         name="Menu 2"
         activeLink={location.pathname}
-        navLinkElement={NavLink}
         links={{
           'node-2': {
             label: 'Node 2',
