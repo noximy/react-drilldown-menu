@@ -10,6 +10,7 @@ import {
 
 import Menu1 from './component/menu1/Menu1';
 import Menu2 from './component/menu2/Menu2';
+import Menu3 from './component/menu3/Menu3';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <div className="drawer">
           <Menu1 />
           <Menu2 />
+          <Menu3 />
         </div>
 
         <div className="page-container">
@@ -40,6 +42,13 @@ const App = () => {
                 <div>Page 3</div>
               </Route>
               <Route excat path="/node-1/page-4">
+                <div>Page 4</div>
+              </Route>
+
+              <Route excat path="/branch-1/page-3">
+                <div>Page 3</div>
+              </Route>
+              <Route excat path="/branch-1/page-4">
                 <div>Page 4</div>
               </Route>
               <Route excat path="/node-1/page-5">

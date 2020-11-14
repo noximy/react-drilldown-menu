@@ -42,7 +42,7 @@ export default function Header({
 Header.propTypes = {
   expanded: PropTypes.bool.isRequired,
   nodeInfo: PropTypes.object,
-  menuIcon: PropTypes.any.isRequired,
+  menuIcon: PropTypes.object.isRequired,
   menuName: PropTypes.string.isRequired,
   onToggleExpand: PropTypes.func.isRequired,
 };

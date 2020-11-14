@@ -10,7 +10,12 @@ import {
   Links,
 } from './index-style';
 
-import { ArrowLeft, SquareFill } from 'react-bootstrap-icons';
+import {
+  ArrowLeft,
+  SquareFill,
+  CircleFill,
+  ChevronRight,
+} from 'react-bootstrap-icons';
 
 import LinkComp from 'components/link-comp/LinkComp';
 import Header from 'components/header/Header';
@@ -20,10 +25,13 @@ import { getCurrentLinks } from 'services/menu-service.js';
 import t from 'src/theme';
 
 export const ReactDrilldownMenu = ({
+  navLink,
   activeLink,
   name,
   icon,
   links,
+  defaultLeafIcon,
+  defaultBranchIcon,
   rightArrowIcon,
 }) => {
   const [path, setPath] = useState('');
@@ -99,8 +107,11 @@ export const ReactDrilldownMenu = ({
             return (
               <LinkComp
                 key={node}
+                navLink={navLink}
                 currentNode={path ? '/' + path : ''}
                 link={{ path: node, ...currentLinks[node] }}
+                defaultLeafIcon={defaultLeafIcon}
+                defaultBranchIcon={defaultBranchIcon}
                 rightArrowIcon={rightArrowIcon}
                 onNodeClick={handleNodeClick}
               />
@@ -113,16 +124,20 @@ export const ReactDrilldownMenu = ({
 };
 
 ReactDrilldownMenu.propTypes = {
-  activeLink: PropTypes.string,
+  navLink: PropTypes.object.isRequired,
+  activeLink: PropTypes.string.isRequired,
   name: PropTypes.string,
-  icon: PropTypes.any,
+  icon: PropTypes.object,
   links: PropTypes.object.isRequired,
-  rightArrowIcon: PropTypes.any,
+  defaultLeafIcon: PropTypes.object,
+  defaultBranchIcon: PropTypes.object,
+  rightArrowIcon: PropTypes.object,
 };
 
 ReactDrilldownMenu.defaultProps = {
-  activeLink: '',
   name: 'Menu',
   icon: <SquareFill />,
-  rightArrowIcon: null,
+  defaultLeafIcon: <CircleFill />,
+  defaultBranchIcon: <SquareFill />,
+  rightArrowIcon: <ChevronRight />,
 };
