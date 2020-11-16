@@ -4,14 +4,19 @@ import PropTypes from 'prop-types';
 import { LinkSC, IconSC, Label, RightArrow } from './LinkComp-style';
 
 export default function LinkComp({
-  navLink,
   currentNode,
   link,
+  activeLink,
   defaultLeafIcon,
   defaultBranchIcon,
   rightArrowIcon,
   onNodeClick,
+  onLeafNodeClick,
 }) {
+  console.log(activeLink);
+  console.log(`${currentNode}/${link.path}`);
+  console.log(activeLink.search(`${currentNode}/${link.path}`) !== -1);
+
   return (
     <LinkSC className="k-link">
       {link.links ? (
@@ -28,31 +33,36 @@ export default function LinkComp({
           <RightArrow>{rightArrowIcon}</RightArrow>
         </div>
       ) : (
-        React.createElement(navLink, {
-          to: `${currentNode}/${link.path}`,
-          className: 'link-element k-link-anchor',
-          children: (
-            <React.Fragment>
-              <IconSC className="k-link-icon">
-                {link.icon ? link.icon : defaultLeafIcon}
-              </IconSC>
-              <Label className="k-link-label">{link.label}</Label>
-            </React.Fragment>
-          ),
-        })
+        <div
+          className={
+            'link-element k-link-anchor' +
+            (activeLink.search(`${currentNode}/${link.path}`) !== -1
+              ? ' active'
+              : '')
+          }
+          onClick={() => onLeafNodeClick(`${currentNode}/${link.path}`)}
+        >
+          <IconSC className="k-link-icon k-node-icon">
+            {link.icon ? link.icon : defaultLeafIcon}
+          </IconSC>
+          <Label className="k-link-label k-node-label">
+            {link.label ? link.label : ''}
+          </Label>
+        </div>
       )}
     </LinkSC>
   );
 }
 
 LinkComp.propTypes = {
-  navLink: PropTypes.object.isRequired,
   currentNode: PropTypes.string.isRequired,
+  activeLink: PropTypes.string.isRequired,
   link: PropTypes.object.isRequired,
   defaultLeafIcon: PropTypes.object,
   defaultBranchIcon: PropTypes.object,
   rightArrowIcon: PropTypes.object,
   onNodeClick: PropTypes.func.isRequired,
+  onLeafNodeClick: PropTypes.func.isRequired,
 };
 
 LinkComp.defaultProps = {

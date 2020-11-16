@@ -1,16 +1,20 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-// import * as Icon from 'react-bootstrap-icons';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import { ReactDrilldownMenu } from 'react-drilldown-menu';
 
 export default function Menu3() {
   const location = useLocation();
+  const history = useHistory();
+
+  const handleLeafNodeClick = (newPath) => {
+    history.push(newPath);
+  };
+
   return (
     <div className="menu">
       <ReactDrilldownMenu
         activeLink={location.pathname} // your current path
-        navLink={NavLink} // NavLink element from react-router-dom
         links={{
           'page-1': {
             // key here resembles to path
@@ -32,6 +36,7 @@ export default function Menu3() {
             },
           },
         }}
+        onLeafNodeClick={handleLeafNodeClick}
       />
     </div>
   );

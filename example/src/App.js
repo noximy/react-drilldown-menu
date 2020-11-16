@@ -9,8 +9,6 @@ import {
 } from 'react-router-dom';
 
 import Menu1 from './component/menu1/Menu1';
-import Menu2 from './component/menu2/Menu2';
-import Menu3 from './component/menu3/Menu3';
 
 const App = () => {
   return (
@@ -18,8 +16,6 @@ const App = () => {
       <div className="container">
         <div className="drawer">
           <Menu1 />
-          <Menu2 />
-          <Menu3 />
         </div>
 
         <div className="page-container">

@@ -9,7 +9,7 @@ export const IconSC = styled.div`
   width: ${t.linkHeight};
   height: ${t.linkHeight};
   font-size: ${t.linkIconFontSize};
-  color: #888888;
+  color: ${t.linkIconColor};
 `;
 
 export const RightArrow = styled.div`
@@ -20,7 +20,7 @@ export const RightArrow = styled.div`
   height: ${t.linkHeight};
   transition: 0.3s all;
   font-size: 17px;
-  color: #888888;
+  color: ${t.linkIconColor};
 `;
 
 export const LinkSC = styled.div`
@@ -33,29 +33,29 @@ export const LinkSC = styled.div`
     align-items: center;
     width: 100%;
     height: ${t.linkHeight};
-    color: #111111;
+    color: ${t.linkTextColor};
     cursor: pointer;
     text-decoration: none;
     transition: 0.3s all;
 
     &.active {
       background: ${t.selectionBackgroundColor};
-      color: #ffffff;
+      color: ${t.activeLinkTextColor};
 
       ${IconSC} {
-        color: #ffffff;
+        color: ${t.activeLinkIconColor};
       }
 
       &:hover {
         background: ${t.selectionBackgroundColor};
         ${IconSC} {
-          color: #ffffff;
+          color: ${t.activeLinkIconColor};
         }
       }
     }
 
     &:hover {
-      background: #f5f5f5;
+      background: ${t.hoverLinkBackgroundColor};
 
       ${RightArrow} {
         transform: translateX(4px);

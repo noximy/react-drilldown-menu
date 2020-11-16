@@ -25,7 +25,6 @@ import { getCurrentLinks } from 'services/menu-service.js';
 import t from 'src/theme';
 
 export const ReactDrilldownMenu = ({
-  navLink,
   activeLink,
   name,
   icon,
@@ -33,6 +32,7 @@ export const ReactDrilldownMenu = ({
   defaultLeafIcon,
   defaultBranchIcon,
   rightArrowIcon,
+  onLeafNodeClick,
 }) => {
   const [path, setPath] = useState('');
   const [currentLinks, setCurrentLinks] = useState(links);
@@ -107,13 +107,14 @@ export const ReactDrilldownMenu = ({
             return (
               <LinkComp
                 key={node}
-                navLink={navLink}
+                activeLink={activeLink}
                 currentNode={path ? '/' + path : ''}
                 link={{ path: node, ...currentLinks[node] }}
                 defaultLeafIcon={defaultLeafIcon}
                 defaultBranchIcon={defaultBranchIcon}
                 rightArrowIcon={rightArrowIcon}
                 onNodeClick={handleNodeClick}
+                onLeafNodeClick={onLeafNodeClick}
               />
             );
           })}
@@ -124,7 +125,6 @@ export const ReactDrilldownMenu = ({
 };
 
 ReactDrilldownMenu.propTypes = {
-  navLink: PropTypes.object.isRequired,
   activeLink: PropTypes.string.isRequired,
   name: PropTypes.string,
   icon: PropTypes.object,
@@ -132,6 +132,7 @@ ReactDrilldownMenu.propTypes = {
   defaultLeafIcon: PropTypes.object,
   defaultBranchIcon: PropTypes.object,
   rightArrowIcon: PropTypes.object,
+  onLeafNodeClick: PropTypes.func.isRequired,
 };
 
 ReactDrilldownMenu.defaultProps = {
