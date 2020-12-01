@@ -15,7 +15,10 @@ export default function Menu1() {
   return (
     <div className="menu">
       <ReactDrilldownMenu
-        theme="light"
+        theme="dark"
+        customTheme={{
+          selectionBackgroundColor: '#444444',
+        }}
         activeLink={location.pathname}
         defaultLeafIcon={<Icon.FileCode />}
         defaultBranchIcon={<Icon.Folder />}
