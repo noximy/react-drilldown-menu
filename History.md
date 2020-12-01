@@ -1,3 +1,15 @@
+# 1.2.0 / 1/Dec/2020
+
+- Remove all console logs. Left by mistake last time.
+- REMOVE: accordion and header.
+- Add dark and custom theme support.
+- Add paging animation system.
+- Revamp the code completely.
+- Change code architecture.
+- Add better examples in the example app.
+- Increase icon size.
+- Update Readme.md file.
+
 # 1.1.3 / 16/Nov/2020
 
 - Fix the Link not effecting page change
