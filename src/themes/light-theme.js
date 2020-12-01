@@ -1,4 +1,5 @@
 export default {
+  menuBackgroundColor: '#ffffff',
   selectionBackgroundColor: '#5098cd',
   linkIconColor: '#888888',
   linkTextColor: '#111111',
@@ -8,6 +9,6 @@ export default {
 
   linkHeightNumber: 37,
   linkHeight: '37px',
-  linkIconFontSize: '10px',
+  linkIconFontSize: '14px',
   backButtonSize: '16px',
 };

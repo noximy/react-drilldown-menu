@@ -7,6 +7,7 @@ export const MenuSC = styled.div`
   flex-direction: row;
   width: auto;
   overflow-x: hidden;
+  background-color: ${(props) => props.theme.menuBackgroundColor};
 `;
 
 export const PageContainer = styled.div`

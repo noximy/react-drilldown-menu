@@ -23,6 +23,7 @@ export const Menu = ({
   defaultBranchIcon,
   rightArrowIcon,
   onLeafNodeClick,
+  customTheme,
 }) => {
   const [menuWidth, setMenuWidth] = useState(0);
   const [pages, setPages] = useState([]);
@@ -75,7 +76,7 @@ export const Menu = ({
   };
 
   return (
-    <ThemeProvider theme={getTheme(theme)}>
+    <ThemeProvider theme={{ ...getTheme(theme), ...customTheme }}>
       <MenuSC className="k-menu-container" ref={menuEl}>
         {pages.length ? (
           <PageContainer

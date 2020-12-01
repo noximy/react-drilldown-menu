@@ -1,13 +1,14 @@
 export default {
+  menuBackgroundColor: '#111111',
   selectionBackgroundColor: '#5098cd',
-  linkIconColor: '#888888',
-  linkTextColor: '#111111',
+  linkIconColor: '#cccccc',
+  linkTextColor: '#e2e2e2',
   activeLinkTextColor: '#ffffff',
   activeLinkIconColor: '#ffffff',
-  hoverLinkBackgroundColor: '#f5f5f5',
+  hoverLinkBackgroundColor: '#212121',
 
   linkHeightNumber: 37,
   linkHeight: '37px',
-  linkIconFontSize: '10px',
+  linkIconFontSize: '14px',
   backButtonSize: '16px',
 };
