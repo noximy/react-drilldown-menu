@@ -1,0 +1,18 @@
+export const links = [
+  '/home',
+  '/desktop/folder-1/file-1.1',
+  '/desktop/folder-1/file-1.2',
+  '/desktop/folder-1/file-1.3',
+  '/desktop/folder-2/file-2.1',
+  '/desktop/folder-2/file-2.2',
+  '/documents/scripts/scripts-1.1',
+  '/documents/scripts/scripts-1.2',
+  '/documents/scripts/scripts-1.3',
+  '/documents/scripts/scripts-1.4',
+  '/downloads/info',
+  '/downloads/project_code',
+  '/downloads/games/game-1',
+  '/downloads/games/game-2',
+  '/settings',
+  '/about',
+];

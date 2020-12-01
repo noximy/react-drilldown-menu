@@ -15,49 +15,113 @@ export default function Menu1() {
   return (
     <div className="menu">
       <ReactDrilldownMenu
-        name="Menu 1"
-        icon={<Icon.FileBinaryFill />} // asdads
+        theme="light"
         activeLink={location.pathname}
-        defaultLeafIcon={<Icon.CircleFill />}
-        defaultBranchIcon={<Icon.SquareFill />}
+        defaultLeafIcon={<Icon.FileCode />}
+        defaultBranchIcon={<Icon.Folder />}
         links={{
-          'page-1': {
-            label: 'Page 1',
+          home: {
+            label: 'Home',
+            icon: <Icon.HouseFill />,
           },
-          'page-2': {
-            label: 'Page 2',
-            icon: <Icon.BarChartFill />,
-          },
-          'node-1': {
-            label: 'Node 1',
+          desktop: {
+            label: 'Desktop',
+            icon: <Icon.App />,
             links: {
-              'page-3': {
-                label: 'Page 3',
-              },
-              'page-4': {
-                label: 'Page 4',
-              },
-            },
-          },
-          'node-2': {
-            label: 'Node 2',
-            links: {
-              'node-2.1': {
-                label: 'Node 2.1',
+              'folder-1': {
+                label: 'Folder 1',
                 links: {
-                  'page-3': {
-                    label: 'Page 3',
+                  'file-1.1': {
+                    label: 'File 1.1',
+                  },
+                  'file-1.2': {
+                    label: 'File 1.2',
+                  },
+                  'file-1.3': {
+                    label: 'File 1.3',
                   },
                 },
               },
-              'page-3': {
-                label: 'Page 3',
+              'folder-2': {
+                label: 'Folder 2',
+                links: {
+                  'file-2.1': {
+                    label: 'File 2.1',
+                  },
+                  'file-2.2': {
+                    label: 'File 2.2',
+                  },
+                },
+              },
+            },
+          },
+          documents: {
+            label: 'Documents',
+            icon: <Icon.JournalAlbum />,
+            links: {
+              scripts: {
+                label: 'Scripts',
+                links: {
+                  'scripts-1.1': {
+                    label: 'Scripts 1.1',
+                  },
+                  'scripts-1.2': {
+                    label: 'Scripts 1.2',
+                  },
+                  'scripts-1.3': {
+                    label: 'Scripts 1.3',
+                  },
+                  'scripts-1.4': {
+                    label: 'Scripts 1.4',
+                  },
+                },
+              },
+              projects: {
+                label: 'Projects',
+                links: {
+                  'menu-project': {
+                    label: 'Menu Project',
+                  },
+                  'count-app': {
+                    label: 'Count App',
+                  },
+                },
+              },
+            },
+          },
+          downloads: {
+            label: 'Documents',
+            icon: <Icon.JournalArrowDown />,
+            links: {
+              info: {
+                label: 'info.pdf',
+                icon: <Icon.FileEarmarkPpt />,
+              },
+              project_code: {
+                label: 'project_code.zip',
+                icon: <Icon.FileEarmarkZip />,
+              },
+              games: {
+                label: 'Games',
+                links: {
+                  'game-1': {
+                    label: 'Game 1',
+                  },
+                  'game-2': {
+                    label: 'Game 2',
+                  },
+                },
               },
             },
           },
 
-          'page-6': {
-            label: 'Page 6',
+          settings: {
+            label: 'Settings',
+            icon: <Icon.GearFill />,
+          },
+          about: {
+            label: 'About',
+            icon: <Icon.InfoCircleFill />,
           },
         }}
         onLeafNodeClick={handleLeafNodeClick}
