@@ -7,9 +7,9 @@
         "root": ["./"],
         "alias": {
           "src": "./src",
-          "constants": "./src/constants",
           "components": "./src/components",
-          "services": "./src/services"
+          "themes": "./src/themes",
+          "utils": "./src/utils"
         }
       }
     ]

@@ -14,11 +14,9 @@ export function getCurrentLinks(links, path) {
 
   let newLinks = { ...links };
   let newPathArr = [];
-  let nodeInfo = null;
 
   for (let node of nodes) {
     if (newLinks[node] && newLinks[node].links) {
-      nodeInfo = { label: newLinks[node].label, icon: newLinks[node].icon };
       newLinks = { ...newLinks[node].links };
       newPathArr.push(node);
     } else {
@@ -28,5 +26,21 @@ export function getCurrentLinks(links, path) {
 
   const newPath = newPathArr.join('/');
 
-  return { newLinks, nodeInfo, newPath };
+  return { newLinks, newPath };
+}
+
+export function getPagesArrayFromActiveLink(activeLink, links) {
+  const { newPath } = getCurrentLinks(links, activeLink.substring(1));
+
+  let newPages = [''];
+
+  if (newPath) {
+    newPages = ['', ...newPath.split('/')];
+  }
+
+  for (let i = 2; i < newPages.length; i++) {
+    newPages[i] = `${newPages[i - 1]}/${newPages[i]}`;
+  }
+
+  return newPages;
 }

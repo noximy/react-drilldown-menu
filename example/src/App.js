@@ -5,10 +5,12 @@ import {
   Route,
   Switch,
   Redirect,
-  Link,
 } from 'react-router-dom';
 
 import Menu1 from './component/menu1/Menu1';
+import Settings from './component/settings/Settings';
+
+import { links } from './routes';
 
 const App = () => {
   return (
@@ -21,40 +23,25 @@ const App = () => {
         <div className="page-container">
           <div className="page">
             <Switch>
-              <Route exact path="/page-1">
-                <div>Page 1</div>
+              <Route exact path="/settings/tab-1">
+                <Settings />
+                Settings Tab 1
               </Route>
-              <Route exact path="/page-2">
-                <div>Page 2</div>
+              <Route exact path="/settings/tab-2">
+                <Settings />
+                Settings Tab 2
               </Route>
-              <Route excat path="/node-2/page-3/general-info">
-                <div>General Info</div>
-              </Route>
-              <Route excat path="/node-2/page-3">
-                <Link to="/node-2/page-3/general-info">General Info</Link>
-              </Route>
-
-              <Route excat path="/node-1/page-3">
-                <div>Page 3</div>
-              </Route>
-              <Route excat path="/node-1/page-4">
-                <div>Page 4</div>
+              <Route exact path="/settings">
+                <Settings />
               </Route>
 
-              <Route excat path="/branch-1/page-3">
-                <div>Page 3</div>
-              </Route>
-              <Route excat path="/branch-1/page-4">
-                <div>Page 4</div>
-              </Route>
-              <Route excat path="/node-1/page-5">
-                <div>Page 5</div>
-              </Route>
-              <Route excat path="/page-6">
-                <div>Page 6</div>
-              </Route>
+              {links.map((link) => (
+                <Route key={link} exact path={link}>
+                  {link}
+                </Route>
+              ))}
               <Route path="*">
-                <Redirect to="/page-1" />
+                <Redirect to={links[0]} />
               </Route>
             </Switch>
           </div>

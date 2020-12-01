@@ -1,35 +1,31 @@
 import styled from 'styled-components';
-
-import t from 'src/theme';
-
-export const ReactDrilldownMenuSC = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import v from 'src/variables';
 
 export const BackButtonIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: ${t.linkHeight};
-  width: ${t.linkHeight};
+  height: ${(props) => props.theme.linkHeight};
+  width: ${(props) => props.theme.linkHeight};
   font-size: 19px;
-  transition: 0.3s all;
+  transition: all ${v.animationSpeed}ms;
 `;
 
-export const BackButton = styled.button`
+export const BackButtonSC = styled.button`
   display: flex;
   align-items: center;
   justify-content: flex-start;
   border: none;
-  height: ${t.linkHeight};
+  height: ${(props) => props.theme.linkHeight};
+  max-height: ${(props) => props.theme.linkHeight};
   flex: 1;
   font-size: 20px;
   background: transparent;
   padding: 0;
   outline: none;
   cursor: pointer;
-  color: ${t.selectionBackgroundColor};
+  color: ${(props) => props.theme.selectionBackgroundColor};
+  transition: all ${v.animationSpeed}ms;
 
   :hover {
     ${BackButtonIcon} {
@@ -40,12 +36,6 @@ export const BackButton = styled.button`
 
 export const BackButtonText = styled.div`
   display: flex;
-  font-size: ${t.backButtonSize};
-`;
-
-export const Links = styled.div`
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transition: 0.3s all;
+  font-size: ${(props) => props.theme.backButtonSize};
+  transition: all ${v.animationSpeed}ms;
 `;
