@@ -42,6 +42,14 @@ export default function Menu1() {
           'node-2': {
             label: 'Node 2',
             links: {
+              'node-2.1': {
+                label: 'Node 2.1',
+                links: {
+                  'page-3': {
+                    label: 'Page 3',
+                  },
+                },
+              },
               'page-3': {
                 label: 'Page 3',
               },

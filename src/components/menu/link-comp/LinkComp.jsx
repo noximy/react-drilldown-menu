@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { LinkSC, IconSC, Label, RightArrow } from './LinkComp-style';
+import {
+  LinkSC,
+  LinkElement,
+  IconSC,
+  Label,
+  RightArrow,
+} from './LinkComp-style';
 
 export default function LinkComp({
   currentNode,
@@ -13,15 +19,11 @@ export default function LinkComp({
   onNodeClick,
   onLeafNodeClick,
 }) {
-  console.log(activeLink);
-  console.log(`${currentNode}/${link.path}`);
-  console.log(activeLink.search(`${currentNode}/${link.path}`) !== -1);
-
   return (
     <LinkSC className="k-link">
       {link.links ? (
-        <div
-          className="link-element k-node-link"
+        <LinkElement
+          className="k-node-link"
           onClick={() => onNodeClick(link.path)}
         >
           <IconSC className="k-link-icon k-node-icon">
@@ -31,24 +33,24 @@ export default function LinkComp({
             {link.label ? link.label : ''}
           </Label>
           <RightArrow>{rightArrowIcon}</RightArrow>
-        </div>
+        </LinkElement>
       ) : (
-        <div
+        <LinkElement
           className={
-            'link-element k-link-anchor' +
+            'k-link-anchor' +
             (activeLink.search(`${currentNode}/${link.path}`) !== -1
               ? ' active'
               : '')
           }
           onClick={() => onLeafNodeClick(`${currentNode}/${link.path}`)}
         >
-          <IconSC className="k-link-icon k-node-icon">
+          <IconSC className="k-link-icon k-branch-icon">
             {link.icon ? link.icon : defaultLeafIcon}
           </IconSC>
-          <Label className="k-link-label k-node-label">
+          <Label className="k-link-label k-branch-label">
             {link.label ? link.label : ''}
           </Label>
-        </div>
+        </LinkElement>
       )}
     </LinkSC>
   );

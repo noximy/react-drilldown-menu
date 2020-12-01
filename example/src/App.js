@@ -27,11 +27,14 @@ const App = () => {
               <Route exact path="/page-2">
                 <div>Page 2</div>
               </Route>
-              <Route excat path="/node-2/page-3/general-info">
-                <div>General Info</div>
+              <Route excat path="/node-2/page-3/tab-link">
+                <div>Page content</div>
               </Route>
               <Route excat path="/node-2/page-3">
-                <Link to="/node-2/page-3/general-info">General Info</Link>
+                <Link to="/node-2/page-3/tab-link">Tab Link</Link>
+              </Route>
+              <Route excat path="/node-2/node-2.1/page-3">
+                <div>node-2 - node-2.1 - Page 3</div>
               </Route>
 
               <Route excat path="/node-1/page-3">
